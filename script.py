@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import os
-import sys
 
 os.chdir('raw_data')
 files = os.listdir(os.getcwd())

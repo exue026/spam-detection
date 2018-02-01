@@ -10,6 +10,8 @@ Doesn't matter. The cost function is convex, so we will always ending up finding
 
 ## How should I split my dataset into the training set, cross validation set, and testing set?
 
+## What should be the value of our constant for regularization?
+
 ## Declaring convergence
 
 Declare convergence of if cost decreases by less than 1E-3 in one iteration of gradient descent
