@@ -16,4 +16,4 @@ def load_data():
             'is_spam': True,
         })
 
-    print(raw_training_set[4].get('contents'))
+    return raw_training_set
