@@ -1,4 +1,5 @@
 import os
+import numpy as np
 
 from preprocess import preprocess
 
@@ -7,6 +8,8 @@ def load_data():
     file_path = os.path.abspath(os.path.join(dir_path, '..', 'raw_data'))
 
     directories = os.listdir(file_path)
+    raw_training_set = [] 
+
     for directory in directories:
         if directory == '.DS_Store':
             continue
@@ -14,15 +17,17 @@ def load_data():
         if 'nospam' in directory:
             is_spam = False
         
-        raw_training_set = [] 
         dir_path = os.path.join(file_path, directory) 
         for file_name in os.listdir(dir_path):
             if file_name == '.DS_Store':
                 continue
-            file = open(os.path.join(dir_path, file_name))
+            file = open(os.path.join(dir_path, file_name), encoding = 'ISO-8859-1')
             processed_email = preprocess(file_name, file.read())
             raw_training_set.append({
                 'contents': processed_email,
                 'is_spam': is_spam,
             })
-    return raw_training_set
+            break
+        break
+
+    return np.array(raw_training_set)

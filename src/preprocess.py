@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import nltk
+import numpy as np
 
 def setupNltk():
     sys.path.append("/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages")
@@ -30,4 +31,5 @@ def preprocess(file_name, email):
     tokens = nltk.tokenize.word_tokenize(email)
     stemmer = nltk.stem.PorterStemmer()
     email = [stemmer.stem(word) for word in tokens]
-    return email
+
+    return np.array(email)
