@@ -1,8 +1,9 @@
 
-def get_feature_vector(vocab_list, training_set):
+def extract_feature_vector(vocab_list, training_set):
     vocab_to_index = get_vocab_to_index(vocab_list) 
-    training_set = [words_to_indices(email_obj, vocab_to_index) for email_obj in training_set]
-    return training_set
+    indicies = [words_to_indices(email_obj, vocab_to_index) for email_obj in training_set]
+    feature_matrix = get_feature_matrix(indicies, vocab_list) 
+    return feature_matrix
 
 def get_vocab_to_index(vocab_list):
     memo = {}
@@ -17,3 +18,5 @@ def words_to_indices(email_obj, vocab_to_index):
         indicies.append(vocab_to_index.get(word, -1))
     email_obj['contents'] = list(filter(lambda x: x >= 0, indicies))
     return email_obj
+
+def get_feature_matrix(indicies, vocab_list):
