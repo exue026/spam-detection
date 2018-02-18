@@ -12,7 +12,7 @@ Given a dataset, our hypothesis, and "expected" values,
 returns the cost (or error) of the hypothesis
 '''
 def cost(h, X, y):
-
+    return 0
 '''
 Initializes a vector of parameters to be used in our hypothesis
 Parameters are initially in the range of [-10, 10)
