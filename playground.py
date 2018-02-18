@@ -31,3 +31,10 @@ print(math.log(2.718))
 vector = np.array([2.718, 2, 2.718])
 log = np.vectorize(lambda x: math.log(x)) 
 print(log(vector))
+
+a = np.array([1, 2, 3])
+b = np.array([2, 2, 2])
+print(a * b)
+
+print(np.subtract(a, b))
+print(1 - a)
