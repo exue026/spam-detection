@@ -18,6 +18,7 @@ def load_data():
             is_spam = False
         
         dir_path = os.path.join(file_path, directory) 
+        temp = 0
         for file_name in os.listdir(dir_path):
             if file_name == '.DS_Store':
                 continue
@@ -27,7 +28,9 @@ def load_data():
                 'contents': processed_email,
                 'is_spam': is_spam,
             })
-            break
+            temp += 1
+            if temp == 3:
+                break
         break
 
     return np.array(raw_training_set)

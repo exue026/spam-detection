@@ -8,6 +8,5 @@ def main():
     training_set = load_data()
     vocab_list = get_vocab_list(training_set)
     X = extract_feature_matrix(vocab_list, training_set)
-    print(X)
 
 if __name__ == '__main__': main()
