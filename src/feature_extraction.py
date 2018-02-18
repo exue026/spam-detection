@@ -20,14 +20,15 @@ def words_to_indices(email_obj, vocab_to_index):
     email_obj['contents'] = list(filter(lambda x: x >= 0, indicies))
     return email_obj
 
-"""
-Create an m x n matrix where each row is the feature vector of a training example,
+'''
+Create an {m x n + 1} matrix where each row is the feature vector of a training example,
 there are m training examples, and each column is a specific feature
-"""
+'''
 def get_feature_matrix(indicies, vocab_list):
     feature_matrix = np.zeros((len(indicies), len(vocab_list)), dtype=int)
     for i in range(len(indicies)):
         word_indicies = indicies[i].get('contents')
         for j in range(len(word_indicies)):
             feature_matrix[i,word_indicies[j]] = 1
-    return feature_matrix
+    bias_terms = np.ones((feature_matrix.shape[0], 1), dtype=int)
+    return np.concatenate((bias_terms, feature_matrix), axis=1)

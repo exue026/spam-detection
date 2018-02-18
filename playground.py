@@ -5,5 +5,12 @@ import numpy as np
 
 A = ['one', 'two', 'three']
 hashmap = dict(np.ndenumerate(A))
-print(hashmap[1])
-    
+
+a = np.array([[1, 1], [2, 2], [3, 3]])
+print(a)
+
+bias = np.ones((a.shape[0], 1), dtype=int)
+print(bias)
+
+b = np.concatenate((bias, a), axis=1)
+print(b)
