@@ -14,3 +14,6 @@ print(bias)
 
 b = np.concatenate((bias, a), axis=1)
 print(b)
+
+A = np.random.uniform(low=-10, high=10, size=(5,1))
+print(A)

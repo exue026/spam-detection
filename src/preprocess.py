@@ -4,8 +4,10 @@ import sys
 import nltk
 import numpy as np
 
+PYTHON_PACKAGE_DIR = '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages'
+
 def setupNltk():
-    sys.path.append("/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages")
+    sys.path.append(PYTHON_PACKAGE_DIR)
     nltk.download('punkt')
 
 def regex_expr(expr, replace, string):
