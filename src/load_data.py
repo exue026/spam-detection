@@ -13,6 +13,7 @@ def load_data():
     for directory in directories:
         if directory == '.DS_Store':
             continue
+        print(directory)
         is_spam = True
         if 'nospam' in directory:
             is_spam = False
@@ -29,7 +30,7 @@ def load_data():
                 'is_spam': is_spam,
             })
             temp += 1
-            if temp == 3:
+            if temp == 200:
                 break
         break
 

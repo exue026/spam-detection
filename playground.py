@@ -1,6 +1,7 @@
 import site
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 
 # site packages
 print(site.getsitepackages())
@@ -48,3 +49,8 @@ a = np.array([
 ])
 
 print(a[1:])
+
+# matplotlib stuff
+
+plt.plot([1,2,3], [5,7,4])
+plt.show()
