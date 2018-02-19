@@ -38,3 +38,13 @@ print(a * b)
 
 print(np.subtract(a, b))
 print(1 - a)
+
+# getting all but first row of matrix
+
+a = np.array([
+    1,
+    2,
+    3,
+])
+
+print(a[1:])
