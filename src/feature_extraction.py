@@ -4,7 +4,8 @@ def extract_feature_matrix(vocab_list, training_set):
     vocab_to_index = get_vocab_to_index(vocab_list) 
     indicies = [words_to_indices(email_obj, vocab_to_index) for email_obj in training_set]
     feature_matrix = get_feature_matrix(indicies, vocab_list) 
-    return feature_matrix
+    y = np.array([1 if obj.get('is_spam') else 0 for obj in training_set])
+    return (feature_matrix, y)
 
 def get_vocab_to_index(vocab_list):
     memo = {}

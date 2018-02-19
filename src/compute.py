@@ -13,7 +13,11 @@ def sigmoid(z):
 element-wise natural logarithmn function
 '''
 def Log(vector):
-    log = np.vectorize(lambda x: math.log(x)) 
+    try:
+        log = np.vectorize(lambda x: math.log(x)) 
+    except ValueError:
+        print(vector)
+        assert(False)
     return log(vector)
 
 '''
@@ -22,10 +26,10 @@ returns the cost (or error) of the hypothesis
 '''
 def cost(h, X, theta, y, reg_const):
     m = y.shape[0]
-    predictions = H(X, theta)
+    predictions = h(X, theta)
     reg_term = (reg_const / (2 * m)) * np.sum(np.square(theta[1:]))
-    return (1 / m) * np.sum(-y * Log(predictions) - (1 - y) * Log(1 - predictions)) + reg_term
-
+    error = (1 / m) * np.sum(-y * Log(predictions) - (1 - y) * Log(1 - predictions)) + reg_term
+    return error
 '''
 Calculates the gradient of the cost function w.r.t the parameters
 Specifically, calculates the rate of change of the cost function with respect to a parameter,
@@ -33,7 +37,7 @@ for each parameter of the hypothesis
 '''
 def gradient(h, X, theta, y, reg_const):
     m = y.shape[0]
-    errors = H(X, theta) - y
+    errors = h(X, theta) - y
     # vectorized implementation of calculating the gradient
     # np.transpose(X) is a {n + 1 X m} matrix
     # each row represents all the values of a particular feature across all
