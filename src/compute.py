@@ -13,11 +13,7 @@ def sigmoid(z):
 element-wise natural logarithmn function
 '''
 def Log(vector):
-    try:
-        log = np.vectorize(lambda x: math.log(x)) 
-    except ValueError:
-        print(vector)
-        assert(False)
+    log = np.vectorize(lambda x: math.log(x)) 
     return log(vector)
 
 '''
@@ -27,8 +23,6 @@ returns the cost (or error) of the hypothesis
 def cost(h, X, theta, y, reg_const):
     m = y.shape[0]
     predictions = h(X, theta)
-    # why is the ouput always [x x x] where x ~ 1?
-    print(predictions)
     reg_term = (reg_const / (2 * m)) * np.sum(np.square(theta[1:]))
     error = (1 / m) * np.sum(-y * Log(predictions) - (1 - y) * Log(1 - predictions)) + reg_term
     return error
@@ -69,5 +63,4 @@ each row being prediction for the specific traininge example
 '''
 def H(X, theta):
     raw_predictions = X.dot(theta)
-    print(raw_predictions)
     return sigmoid(raw_predictions)
