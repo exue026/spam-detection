@@ -10,7 +10,7 @@ Feature scaling is not applicable. Feature scaling is used when features are ord
 
 ## What value(s) should I initialize the parameters of the hypothesis to?
 
-Doesn't matter. The cost function for logistic regression is convex, so we will always end up finding min(J) no matter what we initialize parameters to.
+Doesn't matter. The cost function for logistic regression is convex, so we will always end up finding min(J) no matter what we initialize parameters to. However, I will initialize them to be all 0's, since I want to avoid the values of theta being too large or too small, as then the sigmoid will output a hypothesis value near 1 or 0, which will cause an error as log(0) is undefined.
 
 ## How should I split my dataset into the training set, cross validation set, and testing set?
 

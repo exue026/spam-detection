@@ -21,12 +21,16 @@ class Tests(unittest.TestCase):
             1,
             0
         ])
-        self.assertAlmostEqual(cost(h, X, theta, y), -math.log(0.5))
+        self.assertAlmostEqual(cost(h, X, theta, y, 0), -math.log(0.5))
         
     def test_vectorized_log(self):
         a = Log(np.array([[2.71828, 2.71828], [2.71828, 2.71828]]))
         expected = np.array([[0.999999, 0.999999], [0.999999, 0.999999]])
         np.testing.assert_array_almost_equal(a, expected)
+    
+    def test_vectorized_log2(self):
+        a = Log(np.array([1, 1, 1]))
+        print(a)
 
 
 if __name__ == '__main__':

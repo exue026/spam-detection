@@ -27,6 +27,8 @@ returns the cost (or error) of the hypothesis
 def cost(h, X, theta, y, reg_const):
     m = y.shape[0]
     predictions = h(X, theta)
+    # why is the ouput always [x x x] where x ~ 1?
+    print(predictions)
     reg_term = (reg_const / (2 * m)) * np.sum(np.square(theta[1:]))
     error = (1 / m) * np.sum(-y * Log(predictions) - (1 - y) * Log(1 - predictions)) + reg_term
     return error
@@ -51,7 +53,7 @@ Initializes a vector of parameters to be used in our hypothesis
 Parameters are initially in the range of [-10, 10)
 '''
 def init_params(size):
-    return np.random.uniform(low=-10, high=10, size=size)
+    return np.zeros((size, 1))
 
 '''
 Our hypothesis (or model)
@@ -66,4 +68,6 @@ Given a {m X n + 1} matrix, return a {m X 1} vector,
 each row being prediction for the specific traininge example
 '''
 def H(X, theta):
-    return sigmoid(X.dot(theta))
+    raw_predictions = X.dot(theta)
+    print(raw_predictions)
+    return sigmoid(raw_predictions)

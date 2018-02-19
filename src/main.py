@@ -1,8 +1,10 @@
 from load_data import load_data
 from vocab_list import get_vocab_list
 from feature_extraction import extract_feature_matrix
-from compute import init_params, cost, gradient, h, H
+from compute import init_params, cost, gradient, h, H, Log
 import vocab_list
+
+import numpy as np
 
 '''
 Conventions:
@@ -33,7 +35,6 @@ def main():
 
     prev_error = float('inf') 
     error = cost(H, X, theta, y, reg_const)
-
     while abs(prev_error - error) > epsilon:
         theta = theta - alpha * gradient(H, X, theta, y, reg_const)
         prev_error = error
