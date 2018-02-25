@@ -1,0 +1,19 @@
+body {
+  width: 300px;
+  margin: 10px;
+  white-space: nowrap;
+}
+
+h1 {
+  font-size: 15px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#container > *:not(:last-child) {
+  margin-bottom: 6px;
+}
