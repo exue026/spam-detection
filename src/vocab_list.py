@@ -9,5 +9,5 @@ def get_vocab_list(training_set):
                 vocab_list[word] += 1
             else:
                 vocab_list[word] = 1
-    vocab_list = np.array(sorted(vocab_list, key=vocab_list.__getitem__, reverse=True)[:1000])
+    vocab_list = np.array(sorted(vocab_list, key=vocab_list.__getitem__, reverse=True)[:1500])
     return vocab_list

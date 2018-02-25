@@ -30,6 +30,4 @@ def load_data():
                 'is_spam': is_spam,
             })
 
-        break
-
     return np.array(raw_training_set)

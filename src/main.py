@@ -19,6 +19,8 @@ theta0 is used for the bias term
 x0 is the bias term and always has a value of 1
 '''
 def main():
+    start = time.time()
+
     training_set = load_data()
 
     vocab_list = get_vocab_list(training_set)
@@ -38,12 +40,13 @@ def main():
     # for determining how big each "step" of gradient descent is
     alpha = 0.06
 
-    start = time.time()
-
     (theta,
     error,
     error_history, 
     iterations) = gradient_descent(X, y, theta, reg_const, alpha, epsilon)
+
+    np.savetxt('params.txt', theta)
+    np.savetxt('vocab_list.txt', vocab_list, fmt='%s')
 
     end = time.time()
 
