@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+
+  "name": "Spam detection",
+  "description": "This extension allows the user to detect whether a given piece of text is spam or not spam",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
