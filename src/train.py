@@ -7,6 +7,7 @@ def gradient_descent(X, y, theta, reg_const, alpha, epsilon):
     iters = 0
     error_history = []
     while abs(prev_error - error) > epsilon:
+        grad = gradient(H, X, theta, y, reg_const) 
         theta = theta - alpha * gradient(H, X, theta, y, reg_const)
         prev_error = error
         error = cost(H, X, theta, y, reg_const)

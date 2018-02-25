@@ -7,6 +7,9 @@ from train import gradient_descent
 import plot_data
 import vocab_list
 
+import time
+import numpy as np
+
 '''
 Conventions:
 
@@ -17,13 +20,11 @@ x0 is the bias term and always has a value of 1
 '''
 def main():
     training_set = load_data()
-    print(1)
+
     vocab_list = get_vocab_list(training_set)
-    print(2)
 
     # X is an {m X n + 1} dimensional matrix
     X, y = extract_feature_matrix(vocab_list, training_set)
-    print(3)
 
     # lambda, or the regularization constant
     reg_const = 1
@@ -35,16 +36,19 @@ def main():
     epsilon = 10 ** -3
 
     # for determining how big each "step" of gradient descent is
-    alpha = 2
+    alpha = 0.06
+
+    start = time.time()
 
     (theta,
     error,
     error_history, 
     iterations) = gradient_descent(X, y, theta, reg_const, alpha, epsilon)
 
-    print(4)
+    end = time.time()
 
-    print(error)
+    print('final cost is {}'.format(error))
+    print('gradient descent time is {}s'.format(int(end - start)))
 
     x_label = 'iterations'
     y_label = 'Cost (J)'

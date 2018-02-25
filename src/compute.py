@@ -26,6 +26,7 @@ def cost(h, X, theta, y, reg_const):
     reg_term = (reg_const / (2 * m)) * np.sum(np.square(theta[1:]))
     error = (1 / m) * np.sum(-y * Log(predictions) - (1 - y) * Log(1 - predictions)) + reg_term
     return error
+
 '''
 Calculates the gradient of the cost function w.r.t the parameters
 Specifically, calculates the rate of change of the cost function with respect to a parameter,

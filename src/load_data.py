@@ -29,9 +29,7 @@ def load_data():
                 'contents': processed_email,
                 'is_spam': is_spam,
             })
-            temp += 1
-            if temp == 200:
-                break
+
         break
 
     return np.array(raw_training_set)

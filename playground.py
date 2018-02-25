@@ -10,6 +10,17 @@ print(site.getsitepackages())
 A = ['one', 'two', 'three']
 hashmap = dict(np.ndenumerate(A))
 
+# array vs 1d vector
+
+a = np.array([1, 2, 3])
+print(a.shape)
+a = np.array([[1, 2, 3]])
+print(a)
+a = np.array([1, 2, 3]).reshape(3, 1)
+print(a)
+
+assert(False)
+
 # inserting row into matrix
 a = np.array([[1, 1], [2, 2], [3, 3]])
 print(a)
@@ -54,3 +65,12 @@ print(a[1:])
 
 plt.plot([1,2,3], [5,7,4])
 plt.show()
+
+# file io
+
+a = np.array([1, 2, 3])
+np.savetxt('test.txt', a, delimiter=', ')
+print(a)
+
+b = np.loadtxt('test.txt', dtype=int)
+print(b)
