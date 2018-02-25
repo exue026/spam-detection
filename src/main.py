@@ -45,8 +45,10 @@ def main():
     error_history, 
     iterations) = gradient_descent(X, y, theta, reg_const, alpha, epsilon)
 
+    '''
     np.savetxt('params.txt', theta)
     np.savetxt('vocab_list.txt', vocab_list, fmt='%s')
+    '''
 
     end = time.time()
 
