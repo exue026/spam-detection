@@ -1,5 +1,17 @@
 import numpy as np
 
+def extract_feature_vector(vocab_list, email):
+    vocab_to_index = get_vocab_to_index(vocab_list) 
+    indicies = []
+    for word in email:
+        indicies.append(vocab_to_index.get(word, -1))
+    indicies = list(filter(lambda x: x >= 0, indicies)) 
+    feature_vector= np.zeros((len(vocab_list), 1), dtype=int)
+    for index in indicies:
+        feature_vector[index, 0] = 1
+    feature_vector = np.insert(feature_vector, 0, 1, axis=0)
+    return feature_vector
+    
 def extract_feature_matrix(vocab_list, training_set):
     vocab_to_index = get_vocab_to_index(vocab_list) 
     indicies = [words_to_indices(email_obj, vocab_to_index) for email_obj in training_set]

@@ -13,7 +13,6 @@ def load_data():
     for directory in directories:
         if directory == '.DS_Store':
             continue
-        print(directory)
         is_spam = True
         if 'nospam' in directory:
             is_spam = False

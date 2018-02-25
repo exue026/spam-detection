@@ -10,6 +10,15 @@ print(site.getsitepackages())
 A = ['one', 'two', 'three']
 hashmap = dict(np.ndenumerate(A))
 
+# 1d vector insertion
+
+a = np.array([[1, 2, 3]]).reshape(3, 1)
+print(a)
+a = np.insert(a, 0, -999, axis=0)
+print(a)
+
+assert(False)
+
 # array vs 1d vector
 
 a = np.array([1, 2, 3])
