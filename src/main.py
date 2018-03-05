@@ -35,7 +35,7 @@ def predict_email():
     theta = np.loadtxt(file_path_theta)
     theta = theta.reshape(theta.shape[0], 1)
     vocab_list = np.loadtxt(file_path_vocab, dtype=str)
-    file_path_email = os.path.abspath(os.path.join(dir_path, '..', 'email.txt')) 
+    file_path_email = os.path.abspath(os.path.join(dir_path, '..', 'test-email.txt')) 
     email = open(file_path_email, encoding = 'ISO-8859-1')
     is_spam = predict.is_spam(theta, vocab_list, email.read())
     print('email is spam? {}'.format(is_spam))
