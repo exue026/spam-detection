@@ -15,5 +15,23 @@ h1 {
 }
 
 #container > *:not(:last-child) {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#goclassify {
+  width: 60px;
+  text-transform: uppercase;
+  color: #AB47BC;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+#goclassify:hover {
+  color: #CE93D8;
 }

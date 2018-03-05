@@ -1,10 +1,14 @@
+function setup() {
+  const text = document.getElementById('raw-text').value
 
-$(document).ready(function() {
-  $('#classify').click(function() {
-    console.log('hi')
+  chrome.storage.local.set({
+    classifyText: text,
+  }, function() {
+    chrome.tabs.executeScript({
+      file: 'classify.js'
+    })
   })
-})
-
-function classify() {
-  console.log('bye')
 }
+
+const classifyButton = document.getElementById('goclassify')
+classifyButton.addEventListener('click', setup)

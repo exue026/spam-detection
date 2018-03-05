@@ -4,7 +4,6 @@
   <head>
     <title>spam detection extension</title>
     <link rel="stylesheet" href="style.css">
-    <script src="popup.js"></script>
   </head>
 
   <body>
@@ -12,7 +11,10 @@
     <div id="container">
       <div id='description'>Enter your text below!</div>
       <textarea id="raw-text" rows="14"></textarea>
-      <button id='classify' onclick='javascript:classify();'>classify</button>
+      <div class='button-container'>
+        <div id='goclassify'>classify</div>
+      </div>
     </div>
+    <script type="text/javascript" src="popup.js"></script>
   </body>
 </html>

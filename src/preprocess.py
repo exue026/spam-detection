@@ -18,8 +18,7 @@ def preprocess(file_name, email):
         header_end = email.index('\n\n')
     except ValueError:
         print(file_name)
-        print(email)
-        assert(False)
+        header_end = 0
 
     email = email[header_end:]
     email = email.lower()
